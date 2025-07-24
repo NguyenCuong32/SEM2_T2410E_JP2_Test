@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.example</groupId>
+    <artifactId>JP2ExamKhanhDuy</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>24</maven.compiler.source>
+        <maven.compiler.target>24</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+</project>
+
+        <?import javafx.geometry.Insets?>
+        <?import javafx.scene.control.Button?>
+        <?import javafx.scene.control.ComboBox?>
+        <?import javafx.scene.control.Label?>
+        <?import javafx.scene.control.TableColumn?>
+        <?import javafx.scene.control.TableView?>
+        <?import javafx.scene.control.TextField?>
+        <?import javafx.scene.layout.BorderPane?>
+        <?import javafx.scene.layout.ColumnConstraints?>
+        <?import javafx.scene.layout.GridPane?>
+        <?import javafx.scene.layout.HBox?>
+        <?import javafx.scene.layout.RowConstraints?>
+        <?import javafx.scene.layout.VBox?>
+        <?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.herogame.controller.MainViewController">
+<top>
+    <Label text="Hero Game Player Management" BorderPane.alignment="CENTER">
+        <font>
+            <Font name="System Bold" size="24.0" />
+        </font>
+        <BorderPane.margin>
+            <Insets top="10.0" bottom="10.0" />
+        </BorderPane.margin>
+    </Label>
+</top>
+<center>
+    <TableView fx:id="playerTableView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <columns>
+            <TableColumn fx:id="colPlayerId" prefWidth="75.0" text="Player ID" />
+            <TableColumn fx:id="colPlayerName" prefWidth="150.0" text="Player Name" />
+            <TableColumn fx:id="colHighScore" prefWidth="100.0" text="High Score" />
+            <TableColumn fx:id="colLevel" prefWidth="75.0" text="Level" />
+            <TableColumn fx:id="colNational" prefWidth="150.0" text="National" />
+        </columns>
+        <BorderPane.margin>
+            <Insets left="10.0" right="10.0" />
+        </BorderPane.margin>
+    </TableView>
+</center>
+<bottom>
+    <VBox alignment="TOP_CENTER" spacing="10.0" BorderPane.alignment="CENTER">
+        <BorderPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+        </BorderPane.margin>
+        <children>
+            <GridPane hgap="10.0" vgap="10.0">
+                <columnConstraints>
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                </rowConstraints>
+                <children>
+                    <Label text="Player Name:" />
+                    <Label text="High Score:" GridPane.rowIndex="1" />
+                    <Label text="Level:" GridPane.columnIndex="2" />
+                    <Label text="National:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                    <TextField fx:id="tfPlayerName" GridPane.columnIndex="1" />
+                    <TextField fx:id="tfHighScore" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                    <TextField fx:id="tfLevel" GridPane.columnIndex="3" />
+                    <ComboBox fx:id="cbNational" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                </children>
+            </GridPane>
+            <HBox alignment="CENTER" spacing="10.0">
+                <children>
+                    <Button fx:id="btnAddPlayer" mnemonicParsing="false" onAction="#handleAddPlayer" text="Add New Player" />
+                    <Button fx:id="btnDeletePlayer" mnemonicParsing="false" onAction="#handleDeletePlayer" text="Delete Selected Player" />
+                </children>
+            </HBox>
+            <HBox alignment="CENTER" spacing="10.0">
+                <children>
+                    <Label text="Search by Name:" />
+                    <TextField fx:id="tfSearch" />
+                    <Button fx:id="btnSearch" mnemonicParsing="false" onAction="#handleSearch" text="Find Player" />
+                </children>
+                <VBox.margin>
+                    <Insets top="15.0" />
+                </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER" spacing="15.0">
+                <children>
+                    <Button fx:id="btnShowTop10" mnemonicParsing="false" onAction="#handleShowTop10" text="Show Top 10" />
+                    <Button fx:id="btnShowAll" mnemonicParsing="false" onAction="#handleShowAll" text="Show All Players" />
+                </children>
+                <VBox.margin>
+                    <Insets top="5.0" />
+                </VBox.margin>
+            </HBox>
+        </children>
+    </VBox>
+</bottom>
+</BorderPane>
